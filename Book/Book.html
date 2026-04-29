@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatrak | Booking & Registration</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/Home.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/book.css">
+    <link rel="stylesheet" href="../css/responsive-fixes.css">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader-chess"><i class="fas fa-chess-knight"></i></div>
+    </div>
+
+    <header class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="../index.html" class="logo">Chatrak <i class="fas fa-chess-knight"></i></a>
+
+        <nav class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../Shop/Shop.html">Shop</a>
+            <a href="../news/news.html">News</a>
+            <a href="#">Book</a>
+        </nav>
+        
+        <button id="login-btn" class="btn" style="font-size: 1.7rem; font-weight: 500;">Sign In</button>
+    </header>
+
+    <section class="book" id="book" style="padding-top: 14rem;">
+        
+        <h1 class="heading" id="booking-title">booking <span>reserve a table</span></h1>
+
+        <form action="" id="booking-form">
+            
+            <div class="booking-type-selector">
+                <input type="radio" name="book_type" id="type-table" value="table" checked>
+                <label for="type-table"><i class="fas fa-chair"></i> Reserve Table</label>
+
+                <input type="radio" name="book_type" id="type-tournament" value="tournament">
+                <label for="type-tournament"><i class="fas fa-trophy"></i> Tournament Entry</label>
+            </div>
+
+            <input type="text" placeholder="Full Name" class="box" required>
+            <input type="email" placeholder="Email Address" class="box" required>
+            <input type="tel" placeholder="Phone Number" class="box" required>
+
+            <div id="tournament-fields">
+                <select class="box" style="color: var(--main-color); background: rgba(255,255,255,0.9);">
+                    <option value="" disabled selected>Select Tournament Title (Optional)</option>
+                    <option value="NM">National Master (NM)</option>
+                    <option value="FM">FIDE Master (FM)</option>
+                    <option value="IM">International Master (IM)</option>
+                    <option value="GM">Grandmaster (GM)</option>
+                    <option value="None">No Official Title</option>
+                </select>
+                <input type="number" placeholder="Current FIDE ELO Rating (if any)" class="box">
+            </div>
+
+            <textarea name="" placeholder="Message (Or preferred date and time for table reservation)" class="box" id="main-textarea" cols="30" rows="6" required></textarea>
+            
+            <button type="submit" class="btn" style="width: 100%; text-align: center; font-size: 2rem;">Send Request</button>
+            <div id="booking-success" class="booking-success" style="display:none;"></div>
+        </form>
+    </section>
+
+    <div id="auth-modal" class="modal-overlay">
+        <div class="auth-box">
+            <button type="button" id="close-modal" class="auth-close" aria-label="Close">&times;</button>
+            
+            <h2 id="modal-title" style="color: var(--dark-brown); font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem;">Sign In</h2>
+            <p id="modal-subtitle" style="font-size: 1.5rem; color: #888; margin-bottom: 3rem;">Enter your credentials to continue</p>
+
+            <form id="auth-form">
+                <div class="input-group" id="name-group" style="display: none;">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="auth-name" class="auth-input" placeholder="Your Full Name">
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="auth-email" class="auth-input" placeholder="Email Address" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="auth-password" class="auth-input" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="auth-btn" id="auth-submit-btn">Login</button>
+            </form>
+
+            <div class="auth-footer">
+                <span id="auth-toggle-text">Don't have an account?</span>
+                <a href="#" id="auth-toggle-link">Sign Up</a>
+            </div>
+            <p id="auth-error" style="color: #d9534f; font-size: 1.3rem; margin-top: 1.5rem; font-weight: 600; display: none;"></p>
+        </div>
+    </div>
+
+    <section class="footer">
+        <div class="credit">created by <span>Chatrak Team</span> | all rights reserved</div>
+    </section>
+ 
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/icon-fallback.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script src="../js/book.js"></script>
+</body>
+</html>

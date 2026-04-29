@@ -1,0 +1,91 @@
+  .booking-type-selector {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .booking-type-selector input[type="radio"] {
+            display: none; /* Прячем стандартные кружочки радиокнопок */
+        }
+
+        .booking-type-selector label {
+            padding: 1.5rem 3rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--main-color);
+            background: rgba(255, 255, 255, 0.8);
+            border: var(--border);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Когда радио-кнопка выбрана, меняем стиль её метки (label) */
+        .booking-type-selector input[type="radio"]:checked + label {
+            background: var(--main-color);
+            color: #fff;
+            border-radius: var(--border-radius-hover);
+        }
+
+        /* Скрытые поля для турнира */
+        #tournament-fields {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+.booking-success {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background: rgba(255,255,255,.9);
+    color: var(--main-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: none;
+}
+
+/* Book page: keep reservation and tournament choices next to each other on desktop */
+.book form {
+    max-width: 96rem !important;
+    width: min(96rem, calc(100% - 3rem));
+}
+
+.booking-type-selector {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.booking-type-selector label {
+    min-height: 7.4rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    line-height: 1.35;
+    white-space: normal;
+}
+
+#tournament-fields {
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .booking-type-selector {
+        grid-template-columns: 1fr;
+    }
+}

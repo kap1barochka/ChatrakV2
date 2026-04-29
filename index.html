@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatrak</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/Home.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive-fixes.css">
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="loader-chess">
+            <i class="fas fa-chess-knight"></i>
+        </div>
+    </div>
+
+    <header class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="./index.html" class="logo">Chatrak <i class="fas fa-chess-knight"></i></a>
+
+        <nav class="navbar">
+            <a href="./index.html">Home</a>
+            <a href="./Shop/Shop.html">Shop</a>
+            <a href="#about">About</a>
+            <a href="./news/news.html">News</a>
+            <a href="./Book/Book.html">Book</a>
+        </nav>
+
+        <button id="login-btn" class="btn" style="font-size: 1.7rem; font-weight: 500;">Sign In</button>
+    </header>
+
+    <section class="home" id="home">
+        <div class="row">
+            <div class="content">
+                <h3>Everything related to chess</h3>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <a href="Book/Book.html?type=tournament" class="btn">Join Tournament</a>
+
+                    <a href="./Game/game.html" class="btn"
+                        style="background: transparent; color: var(--main-color); border: 2px solid var(--main-color);">Play
+                        Puzzle</a>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="image/Dzi.png" class="main-home-image" alt="">
+            </div>
+        </div>
+
+        <div class="image-slider">
+            <img src="image/Peshka.png" alt="">
+            <img src="image/Dzi.png" alt="">
+            <img src="image/Pix.png" alt="">
+            <img src="image/Nav.png" alt="">
+            <img src="image/Taguhi.png" alt="">
+            <img src="image/Tagavor.png" alt="">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h1 class="heading">About Us <span>The Chatrak Legacy</span></h1>
+
+        <div id="about-static" style="transition: opacity 0.5s ease;">
+            <div class="row">
+                <div class="image">
+                    <img src="image/Chess-Woman.jpg" alt="Woman playing chess">
+                </div>
+
+                <div class="content">
+                    <h3 class="title">What's Make Our Game Special!</h3>
+                    <p>Chatrak started with a deep passion for chess not just as a game, but as the highest form of
+                        craftsmanship. We believe that every match deserves a proper setting, and every piece is a small
+                        sculpture with its own soul.</p>
+                    <p>Today, our collection includes everything from strict Staunton tournament sets to exotic elm burl
+                        and ebony boards brought from all over the world.</p>
+
+                    <button class="btn" onclick="openInteractiveAbout()">Read More</button>
+
+                    <div class="icons-container">
+                        <a href="./map/map.html" style="display: contents; text-decoration: none;">
+                            <div class="icons">
+                                <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--main-color);"></i>
+                                <h3>Places</h3>
+                            </div>
+                        </a>
+                        <a href="./Game/game.html" style="display: contents; text-decoration: none;">
+                            <div class="icons">
+                                <i class="fas fa-chess-board" style="font-size: 4rem; color: var(--main-color);"></i>
+                                <h3>Games</h3>
+                            </div>
+                        </a>
+                        <a href="./Book/Book.html" style="display: contents; text-decoration: none;">
+                            <div class="icons">
+                                <i class="fas fa-calendar-check" style="font-size: 4rem; color: var(--main-color);"></i>
+                                <h3>Book</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-interactive" style="display: none; opacity: 0; transition: opacity 0.5s ease; margin-top: 4rem;">
+            <div class="interactive-container"
+                style="display: flex; flex-wrap: wrap; gap: 5rem; align-items: center; background: rgba(127, 88, 21, 0.03); border: var(--border); border-radius: var(--border-radius); padding: 5rem;">
+
+                <div class="chapters-menu" style="flex: 1 1 25rem; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <button class="chapter-btn active" onclick="changeContent('origin', event)">01. The Origin</button>
+                    <button class="chapter-btn" onclick="changeContent('woods', event)">02. Noble Woods</button>
+                    <button class="chapter-btn" onclick="changeContent('craft', event)">03. Master Craft</button>
+                    <button class="chapter-btn" onclick="changeContent('legacy', event)">04. The 1849 Legacy</button>
+
+                    <button class="btn" onclick="closeInteractiveAbout()"
+                        style="margin-top: 3rem; align-self: flex-start;"><i class="fas fa-arrow-left"></i>
+                        Back</button>
+                </div>
+
+                <div class="dynamic-content"
+                    style="flex: 1 1 50rem; display: flex; flex-direction: column; gap: 3rem; position: relative;">
+                    <div class="dynamic-image-wrapper"
+                        style="width: 100%; height: 40rem; overflow: hidden; border-radius: var(--border-radius); border: var(--border);">
+                        <img id="display-image" src="./pattern/Ablojkeq/origin.jpg" alt="" class="fade-in"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="dynamic-text fade-in" id="display-text">
+                        <h3 style="font-size: 3rem; color: var(--main-color); margin-bottom: 1.5rem;">The Soul of the
+                            Game</h3>
+                        <p style="font-size: 1.6rem; line-height: 2; color: var(--main-color);">Chatrak is not just a
+                            store; it is a sanctuary for the royal game. We believe that chess is the ultimate
+                            intersection of art, history, and human intellect. Every match deserves a proper setting,
+                            and every piece is a small sculpture with its own history.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <h1 class="heading">Exclusive <span>Products</span></h1>
+        <div class="box-container">
+            <a href="./Shop/Shop.html#america" class="box">
+                <img src="image/Amerikos199.jpg" alt="">
+                <div class="content">
+                    <h3>Polystone Hand-Painted Theme Pieces</h3>
+                    <p>American Revolutionary War Hand Painted Theme Chess Set</p>
+                    <span>$120.00</span>
+                </div>
+            </a>
+            <a href="./Shop/Shop.html#computer" class="box">
+                <img src="image/Elektro.jpg" alt="">
+                <div class="content">
+                    <h3>Chess Computer</h3>
+                    <p>The Millennium ChessGenius Pro Wood Edition</p>
+                    <span>$289.00</span>
+                </div>
+            </a>
+            <a href="./Shop/Shop.html#xachakir" class="box">
+                <img src="image/Xachakir199.jpg" alt="">
+                <div class="content">
+                    <h3>Polystone Hand-Painted Theme Pieces</h3>
+                    <p>Templar Knights Hand Painted Theme Chess Set</p>
+                    <span>$120.00</span>
+                </div>
+            </a>
+            <a href="./Shop/Shop.html#nabore" class="box">
+                <img src="image/Nabor51.jpg" alt="">
+                <div class="content">
+                    <h3>Carry-All Plastic Set</h3>
+                    <p>Standard Club Carry-All Plastic Chess Set Black & Camel Pieces with Vinyl Rollup Board - Green
+                    </p>
+                    <span>$50.00</span>
+                </div>
+            </a>
+            <a href="./Shop/Shop.html#pirat" class="box">
+                <img src="image/Pirat199.jpg" alt="">
+                <div class="content">
+                    <h3>Metal Set With a Case</h3>
+                    <p>Pirates & Royal Navy Hand Painted Theme Chess Set</p>
+                    <span>$120.00</span>
+                </div>
+            </a>
+            <a href="./Shop/Shop.html#rob" class="box">
+                <img src="./pattern/Komplektner/tematik/theme-chess-set-robin-hoot-gne-robin-hood-pieces-view-1500x865__61993.original.jpg"
+                    alt="">
+                <div class="content">
+                    <h3>Polystone Set With a board</h3>
+                    <p>Robin Hood Theme Chess Set</p>
+                    <span>$120.00</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="review" id="review">
+        <h1 class="heading">reviews <span>what people says</span></h1>
+        <div class="swiper review-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <i class="fas fa-quote-left"></i>
+                    <i class="fas fa-quote-right"></i>
+                    <img src="image/Nakamura.jpg" alt="">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, earum quis dolorem quaerat tenetur
+                        illum.</p>
+                    <h3>Nakamura</h3>
+                    <span>satisfied client</span>
+                </div>
+
+                <div class="swiper-slide box">
+                    <i class="fas fa-quote-left"></i>
+                    <i class="fas fa-quote-right"></i>
+                    <img src="image/Magnus.jpg" alt="">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum optio quasi ut, illo ipsam
+                        assumenda.</p>
+                    <h3>Magnus</h3>
+                    <span>satisfied client</span>
+                </div>
+
+                <div class="swiper-slide box">
+                    <i class="fas fa-quote-left"></i>
+                    <i class="fas fa-quote-right"></i>
+                    <img src="image/Tail.jpg" alt="">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius asperiores aliquam hic quis!
+                        Eligendi, aliquam.</p>
+                    <h3>Tal</h3>
+                    <span>satisfied client</span>
+                </div>
+
+                <div class="swiper-slide box">
+                    <i class="fas fa-quote-left"></i>
+                    <i class="fas fa-quote-right"></i>
+                    <img src="image/Bobby.png" alt="">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi modi perspiciatis distinctio
+                        velit aliquid a.</p>
+                    <h3>Fischer</h3>
+                    <span>satisfied client</span>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <div class="add-review-container"
+        style="max-width: 60rem; margin: 4rem auto 0; text-align: center; border: var(--border); padding: 3rem; border-radius: var(--border-radius); background: #fff;">
+        <h3 style="font-size: 2.5rem; color: var(--main-color); margin-bottom: 2rem;">Leave your review</h3>
+        <input type="text" id="reviewer-name" placeholder="Your Name" class="box-input"
+            style="width: 100%; padding: 1.2rem; margin-bottom: 1.5rem; border: var(--border); border-radius: .5rem; font-size: 1.6rem; color: var(--main-color);">
+        <textarea id="reviewer-text" placeholder="Your Message" rows="4" class="box-input"
+            style="width: 100%; padding: 1.2rem; margin-bottom: 1.5rem; border: var(--border); border-radius: .5rem; font-size: 1.6rem; color: var(--main-color); resize: none;"></textarea>
+
+        <div class="rating-stars"
+            style="font-size: 2.5rem; color: var(--main-color); margin-bottom: 2rem; cursor: pointer;">
+            <i class="fas fa-star star-btn" data-value="1"></i>
+            <i class="fas fa-star star-btn" data-value="2"></i>
+            <i class="fas fa-star star-btn" data-value="3"></i>
+            <i class="fas fa-star star-btn" data-value="4"></i>
+            <i class="fas fa-star star-btn" data-value="5"></i>
+        </div>
+
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <button class="btn" id="clear-reviews-btn"
+                style="background: #372929; color: white; border-color: rgb(255, 255, 255); margin-top: 0;">Clear My
+                Reviews</button>
+            <button class="btn" id="submit-review" style="margin-top: 0;">Publish Review</button>
+        </div>
+    </div>
+    <br><br><br>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"><i class="fas fa-arrow-right"></i> Armenia</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Russia</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> USA</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> India</a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="#about"><i class="fas fa-arrow-right"></i> about</a>
+                <a href="#menu"><i class="fas fa-arrow-right"></i> menu</a>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"><i class="fas fa-phone"></i> +123-456-7890</a>
+                <a href="#"><i class="fas fa-envelope"></i> Chatrak@gmail.com</a>
+            </div>
+            <div class="box">
+                <h3>social info</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i> facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> instagram</a>
+            </div>
+        </div>
+        <div class="credit">created by <span>mr. web designer</span> | all rights reserved</div>
+    </section>
+
+    <div id="auth-modal" class="modal-overlay">
+        <div class="auth-box">
+            <button type="button" id="close-modal" class="auth-close" aria-label="Close">&times;</button>
+
+            <h2 id="modal-title"
+                style="color: var(--dark-brown); font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem;">Sign In</h2>
+            <p id="modal-subtitle" style="font-size: 1.5rem; color: #888; margin-bottom: 3rem;">Enter your credentials
+                to continue</p>
+
+            <form id="auth-form">
+                <div class="input-group" id="name-group" style="display: none;">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="auth-name" class="auth-input" placeholder="Your Full Name">
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="auth-email" class="auth-input" placeholder="Email Address" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="auth-password" class="auth-input" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="auth-btn" id="auth-submit-btn">Login</button>
+            </form>
+
+            <div class="auth-footer">
+                <span id="auth-toggle-text">Don't have an account?</span>
+                <a href="#" id="auth-toggle-link">Sign Up</a>
+            </div>
+            <p id="auth-error"
+                style="color: #d9534f; font-size: 1.3rem; margin-top: 1.5rem; font-weight: 600; display: none;"></p>
+        </div>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/icon-fallback.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
